@@ -1,6 +1,6 @@
 {
   "name": "ignore-if",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Ignore a higher-order function if a condition is met, such as NODE_ENV === 'test'",
   "main": "lib/ignore-if.js",
   "scripts": {
