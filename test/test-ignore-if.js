@@ -1,5 +1,6 @@
 import {expect} from 'chai'
 import ignoreIf, {noOp} from '../ignore-if'
+import {pipe} from 'ramda'
 
 describe('ignore-if', () => {
 
@@ -30,6 +31,40 @@ describe('ignore-if', () => {
       const result = ignoreIf(condition, wrapper)
 
       expect(result).to.equal(wrapper)
+    })
+
+    it('works within a ramda pipe', () => {
+      class MyComponent {
+        render() {}
+      }
+      class WrapperComponent {
+        render() {}
+      }
+      const wrapper = () => WrapperComponent
+      const condition = true
+
+      const result = pipe(
+        ignoreIf(condition, wrapper)
+      )(MyComponent)
+
+      expect(result).to.equal(MyComponent)
+    })
+
+    it('works within a ramda pipe when the condition is false', () => {
+      class MyComponent {
+        render() {}
+      }
+      class WrapperComponent {
+        render() {}
+      }
+      const wrapper = () => WrapperComponent
+      const condition = false
+
+      const result = pipe(
+        ignoreIf(condition, wrapper)
+      )(MyComponent)
+
+      expect(result).to.equal(WrapperComponent)
     })
   })
 
