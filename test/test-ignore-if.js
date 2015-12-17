@@ -66,6 +66,15 @@ describe('ignore-if', () => {
 
       expect(result).to.equal(WrapperComponent)
     })
+
+    it('automatically curries if needed', () => {
+      const wrapper = () => {}
+      const ignoreIfTrue = ignoreIf(true)
+
+      const result = ignoreIfTrue(wrapper)
+
+      expect(result).to.equal(noOp)
+    })
   })
 
 })
