@@ -13,7 +13,7 @@ a condition is met, such as `NODE_ENV === 'test'`.
 
 One use case for this is in React when you want to wrap your component in a
 higher-order component, but you'd like to ignore the wrapper in testing. This
-is useful for things like [react-css-modules](react-css-modules).
+is useful for things like [react-css-modules][react-css-modules].
 
 ```jsx
 import cssModules from 'react-css-modules'
@@ -55,7 +55,7 @@ export default ignoreIfTest(cssModules(MyComponent, styles)))
 ## Compose and Pipe
 
 You can use this tool easily with compose() or pipe() from functional libraries
-like [Ramda](ramda):
+like [Ramda][ramda]:
 
 ```jsx
 import {pipe} from 'ramda'
