@@ -75,6 +75,21 @@ describe('ignore-if', () => {
 
       expect(result).to.equal(noOp)
     })
+
+    it('allows the condition to be a function', () => {
+      const wrapper = () => {}
+      let condition = () => true
+
+      let result = ignoreIf(condition, wrapper)
+
+      expect(result).to.equal(noOp)
+
+      condition = () => false
+
+      result = ignoreIf(condition, wrapper)
+
+      expect(result).to.equal(wrapper)
+    })
   })
 
 })
